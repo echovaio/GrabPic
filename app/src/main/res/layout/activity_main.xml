@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.activity.MainActivity">
 
     <ImageView
         android:id="@+id/img_show"
@@ -31,7 +31,7 @@
             android:id="@+id/btn_show"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Show"
+            android:text="Next"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="148dp"
             tools:layout_editor_absoluteY="446dp"/>

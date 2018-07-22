@@ -1,4 +1,4 @@
-package mobi.dingdian.android.grabpic;
+package mobi.dingdian.android.grabpic.ui.activity;
 
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,12 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
+import mobi.dingdian.android.grabpic.R;
+import mobi.dingdian.android.grabpic.bean.entity.Sister;
+import mobi.dingdian.android.grabpic.imgloader.PictureLoader;
+import mobi.dingdian.android.grabpic.imgloader.SisterLoader;
+import mobi.dingdian.android.grabpic.network.SisterApi;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     private Button showBtn;
     private Button refreshBtn;
@@ -19,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int page = 1;
     private PictureLoader loader;
     private SisterApi sisterApi;
+    private SisterLoader mSisterLoader;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         sisterApi = new SisterApi();
         loader = new PictureLoader();
+        mSisterLoader = SisterLoader.getInstance(MainActivity.this);
         initData();
         initUI();
     }
@@ -51,7 +59,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if (curPos > 9) {
                         curPos = 0;
                     }
-                    loader.load(showImg, data.get(curPos).getUrl());
+                    //loader.load(showImg, data.get(curPos).getUrl());
+                    mSisterLoader.bindBitmap(data.get(curPos).getUrl(), showImg, 400, 400);
                     curPos++;
                 }
                 break;

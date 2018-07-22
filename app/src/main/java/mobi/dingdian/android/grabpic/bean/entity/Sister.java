@@ -1,4 +1,4 @@
-package mobi.dingdian.android.grabpic;
+package mobi.dingdian.android.grabpic.bean.entity;
 
 public class Sister {
 
